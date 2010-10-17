@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /bin/bash
 
 
 #pulls the latest source from github.
