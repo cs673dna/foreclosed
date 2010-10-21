@@ -1,9 +1,7 @@
-def application(environ, start_response):
-    status = '200 OK'
-    output = 'Hello World, foreclosed!'
-
-    response_headers = [('Content-type', 'text/plain'),
-                        ('Content-Length', str(len(output)))]
-    start_response(status, response_headers)
-
-    return [output]
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/..')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'foreclosed.settings'
+       
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()
