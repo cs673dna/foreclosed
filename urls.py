@@ -1,10 +1,12 @@
 from django.conf.urls.defaults import *
+from views import hello
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+	('^hello/$', hello),
     # Example:
     # (r'^foreclosed/', include('foreclosed.foo.urls')),
 
