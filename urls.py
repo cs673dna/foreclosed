@@ -7,6 +7,7 @@ from views import hello
 
 urlpatterns = patterns('',
 	('^hello/$', hello),
+	('.*', hello),
     # Example:
     # (r'^foreclosed/', include('foreclosed.foo.urls')),
 
