@@ -6,6 +6,5 @@
 #should be run as root
 #by akittredge October 2010
 
-stop mysql
 git pull
-start mysql
+mysql -u root -pand376sc foreclosed < foreclosed.sql
