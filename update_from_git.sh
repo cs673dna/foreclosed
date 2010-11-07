@@ -8,3 +8,4 @@
 rm *.pyc
 git pull
 mysql -u root -pand376sc foreclosed < foreclosed.sql
+/etc/init.d/apache2 restart
