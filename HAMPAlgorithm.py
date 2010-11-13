@@ -1,5 +1,6 @@
 
 PAYMENT_TO_INCOME_GUIDELINE = .31
+MAX_MODIFICATION_AMOUNT = 729750
 
 class HAMPAlgorithm():
 	def __init__(self):
@@ -7,13 +8,27 @@ class HAMPAlgorithm():
 
 	def meetsModificationRequirements(financialPicture, mortage, address):
 	
-		if mortageMeetsHAMPRequirements(mortage, address) 
-		and 
-		finacialPicture.monthlyIncome * PAYMENT_TO_INCOME_GUIDELINE > mortage.monthlyPayment:
-			return True
-		else:
-			return False
+		if not finacialPicture.monthlyIncome * PAYMENT_TO_INCOME_GUIDELINE > mortage.monthlyPayment:
+			return False, "Monthly Income too high relative to Mortage Payment for HAMP modification."
+
+		if not (mortage.OwnerOccupied and mortage.units < 5):
+			return False, "Mortage must be on an owner occupied \
+				house with less than 5 unis for HAMP modification."
+
+		if not mortage.first:
+			return False, "Only first mortages can be modified with HAMP."
+
+		return mortageMeetsHAMPRequirements(mortage, address) 
 
 
 	def mortageMeetsHAMPRequirements(mortage, address):
-		if 
+		if not mortage.amountowed > address.AssessedValue:
+			return False, "Amount owed must be less than assessed value for HAMP modifiaction."
+
+		if not mortage.amountowed <= MAX_MODIFICATION_AMOUNT:
+			return False, "Amount owed must be less than %s" % (MAX_MODIFICATION_AMOUNT)
+
+		if not mortage.current:
+			return False, "You must be current on your mortage to recieve HAMP modification."
+
+		return True
