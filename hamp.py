@@ -1,5 +1,5 @@
 from django import forms
 
 class HAMPForm(forms.Form):
-	unitYesNo = forms.RadioSelect()
+	numberOfUnits = forms.CharField()
 	freddiFannie = forms.RadioSelect()

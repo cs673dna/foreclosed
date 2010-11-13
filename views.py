@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template import Context, loader
-#from HAMP import HAMPForm
+from hamp import HAMPForm
+from django.shortcuts import render_to_response
 
 
 def hello(request):
@@ -19,7 +20,12 @@ def HAMP(request):
 	return HttpResponse(t.render(c))
 
 def HAMPResults(request):
-	t = loader.get_template('HAMP_RESULT.html')
-	c = Context()
-	
-	return HttpResponse(t.render(c))
+	if request.method == 'POST':
+		form = HAMPForm(request.POST)
+		if form.is_valid():
+			return HttpResponseRedirect('/thank you for submitting HAMP form/')
+
+	else:
+		form = HAMPForm()
+		
+	return render_to_response('HAMP.html', {'form': form})
