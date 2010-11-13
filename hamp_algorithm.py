@@ -10,7 +10,7 @@ class HAMPAlgorithm():
 	def meetsModificationRequirements(financialPicture, mortage, address):
 	
 		if not finacialPicture.monthlyIncome * PAYMENT_TO_INCOME_GUIDELINE > mortage.monthlyPayment:
-			return False, "Monthly Income too high relative to Mortage Payment for HAMP modification."
+			return False, "Monthly Income too high relative to mortage payment for HAMP modification."
 
 		if not (mortage.OwnerOccupied and mortage.units < MAX_UNITS):
 			return False, "Mortage must be on an owner occupied \
