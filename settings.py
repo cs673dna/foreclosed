@@ -83,8 +83,10 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    # Should be an env variable, every developer currently adds work dir
 	'/Users/andrewkittredge/Source/foreclosed',
 	'/usr/src/foreclosed',
+	'/home/neil/Hack/csSoftEng/foreclosed',
 )
 
 INSTALLED_APPS = (
