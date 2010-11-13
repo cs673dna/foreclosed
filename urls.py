@@ -6,7 +6,6 @@ from views import index
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-	#(r'^hello/$', hello),
 	(r'.*', index)
     # Example:
     # (r'^foreclosed/', include('foreclosed.foo.urls')),
