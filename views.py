@@ -28,11 +28,7 @@ def HAMP(request):
 	else:
 		form = HAMPForm()
 		
-<<<<<<< HEAD
-	return render_to_response('HAMP.html', {'form': form})
+	return render_to_response('HAMP.html', {'form': form}, context_instance=RequestContext(request))
 
 def administrate(request):
 	return render_to_response('base_Admin.html')
-=======
-	return render_to_response('HAMP.html', {'form': form}, context_instance=RequestContext(request))
->>>>>>> f80be83dfb0aa8f48c1fe45dfed72ba0f4782047
