@@ -1,0 +1,15 @@
+CTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <h1>Computational Foreclosures</h1>
+    {% block content %}{% endblock %}
+    {% block footer %}
+    <hr>
+    <p>Site created as a BU CS673 final project.</p>
+    {% endblock %}
+</body>
+</html>
+
