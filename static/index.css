@@ -1,10 +1,13 @@
 @charset "UTF-8";
 
 #top_left_logo{
-	float: left;
 	height: 2.5em;
 }
 
-#title{
+#foreclosed_heading{
 	float: left;
+}
+
+#HAMP_title {
+	clear: both;
 }
