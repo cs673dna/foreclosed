@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from views import index, HAMPResults
+from views import index, HAMP
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -7,7 +7,7 @@ from views import index, HAMPResults
 
 urlpatterns = patterns('',
 	(r'^$', index),
-	(r'hamp', HAMPResults)
+	(r'^hamp$', HAMP)
     # Example:
     # (r'^foreclosed/', include('foreclosed.foo.urls')),
 
