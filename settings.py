@@ -84,9 +84,9 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     # Should be an env variable, every developer currently adds work dir
-	'/Users/andrewkittredge/Source/foreclosed',
-	'/usr/src/foreclosed',
-	'/home/neil/Hack/csSoftEng/foreclosed',
+	'/Users/andrewkittredge/Source/foreclosed/templates',
+	'/usr/src/foreclosed/templates',
+	'/home/neil/Hack/csSoftEng/foreclosed/templates',
 )
 
 INSTALLED_APPS = (
