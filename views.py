@@ -29,3 +29,6 @@ def HAMPResults(request):
 		form = HAMPForm()
 		
 	return render_to_response('HAMP.html', {'form': form})
+
+def administrate(request):
+	return render_to_response('base_Admin.html')
