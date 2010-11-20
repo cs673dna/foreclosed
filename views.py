@@ -1,8 +1,7 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import Context, loader, RequestContext
-from hamp import HAMPForm
+from hamp import HAMPForm, HampCheck
 from django.shortcuts import render_to_response
-
 
 def hello(request):
 	return HttpResponse("Hello World")
@@ -23,7 +22,22 @@ def HAMP(request):
 	if request.method == 'POST':
 		form = HAMPForm(request.POST)
 		if form.is_valid():
-			return HttpResponseRedirect('/thank you for submitting HAMP form/')
+			hampCheck = HampCheck()
+			#Address
+			hampCheck.address = form.cleaned_data['streetAddress']
+			hampCheck.citystatezip = form.cleaned_data['cityStateZip']
+
+			#Mortgage
+			hampCheck.amountOwed = form.cleaned_data['amountOwed']
+			hampCheck.units = form.cleaned_data['numberOfUnits']
+			hampCheck.ownerOccupied = form.cleaned_data['ownerOccupied']
+			hampCheck.monthlyPayment = form.cleaned_data['monthlyPayment']
+			hampCheck.first = form.cleaned_data['firstMortgage']
+
+			#Users Financial Situation
+			hampCheck.monthlyIncome = form.cleaned_data['monthlyIncome']
+
+			return render_to_response('hamp_results.html', {'modify': hampCheck.modifiable()})
 
 	else:
 		form = HAMPForm()

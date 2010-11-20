@@ -12,7 +12,11 @@
 	<img id="top_left_logo" src="/foreclosed_logo.png">
 </div>
 
-<h2 id="HAMP_title">HAMP Modification Results</h2>
-<div id="HAMP results"><p>You are eligible for HAMP modification</p>{{form}}</div>
+<h2 id="HAMP_title">HAMP Modification</h2>
+<form action="hamp" method="post">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="Submit" />
+</form>
 </body>
 </html>
