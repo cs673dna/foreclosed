@@ -3,9 +3,6 @@ from django.template import Context, loader, RequestContext
 from hamp import HAMPForm, HAMP
 from django.shortcuts import render_to_response
 
-def hello(request):
-	return HttpResponse("Hello World")
-
 def index(request):
 	t = loader.get_template('index.html')
 	c = Context()
