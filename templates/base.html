@@ -2,7 +2,7 @@
 <html lang="en">
 <link href="/index.css" rel="stylesheet" type="text/css">
 <head>
-    <title>{% block title %}{% endblock %}</title>
+    <title>foreclosed {% block page_title %}{% endblock %}</title>
 </head>
 <body>
 	<div class = "wrapper">
@@ -10,8 +10,11 @@
 		<h1 id="foreclosed_heading">Foreclosed</h1>
 		<img id="top_left_logo" src="/foreclosed_logo.png">
 	     </div>
+	     <h2 id = "page_heading">
+		{% block page_heading %}{% endblock %}
+	     </h2>
 	     <div id = "content">
-	    {% block content %}{% endblock %}
+	     {% block content %}{% endblock %}
 	     </div>
 	    <hr>
 	</div>
