@@ -8,9 +8,9 @@ from django.template import RequestContext
 class HAMPForm(forms.Form):
 	
 	firstMortgage = forms.BooleanField(label = 
-		"Is this the first mortgage on the property")
+		"Is this the first mortgage on the property?")
 
-	ownerOccupied = forms.BooleanField(label = "Is the property owner-occupied")
+	ownerOccupied = forms.BooleanField(label = "Is the property owner-occupied?")
 	
 	current = forms.BooleanField(label = "Is the mortgage current?")
 
