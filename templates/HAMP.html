@@ -1,22 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-	<link href="/index.css" rel="stylesheet" type="text/css">
-	<TITLE>Foreclosed</TITLE>
-</head>
-
-<body>
-<div id="logo_device">	
-	<h1 id="foreclosed_heading">Foreclosed</h1>
-	<img id="top_left_logo" src="/foreclosed_logo.png">
-</div>
-
-<h2 id="HAMP_title">HAMP Modification</h2>
+{% extends "base.html" %}
+{% block title %}
+HAMP Modification
+{% endblock %}
+{% block content %}
 <form action="hamp" method="post">
 {% csrf_token %}
 {{form.as_p}}
 <input type="submit" value="Submit" />
 </form>
-</body>
-</html>
+{% endblock %}
