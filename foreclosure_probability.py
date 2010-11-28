@@ -1,17 +1,9 @@
 class ProbabilityAlgorithm():
-	def __init__(self):
-		pass
-
-	def hasNegativeEquity(assessedValue, amountOwed):
-		if amountOwed > assessedValue:
-			return True
-		else:	
-			return False
 	
-	def probabilityOfForeclosure (assessedValue, amountOwed):
+	def probabilityOfForeclosure (request):
 		if not hasNegativeEquity(assessedValue, amountOwed): 
 			return 0, "You do not have negative equity, \
-				there is not probability of forecosure\
+				there is no probability of forecosure\
 				if you sell your house."
 		
 		negativeEquity = amountOwed - assessedValue
@@ -23,3 +15,10 @@ class ProbabilityAlgorithm():
 			return 1
 		else:
 			return 1 * percentOfNegEq
+
+
+	def hasNegativeEquity(assessedValue, amountOwed):
+		if amountOwed > assessedValue:
+			return True
+		else:	
+			return False
