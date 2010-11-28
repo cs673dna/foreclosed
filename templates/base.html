@@ -5,12 +5,20 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <h1>Computational Foreclosures</h1>
-    {% block content %}{% endblock %}
-    {% block footer %}
-    <hr>
-    <p>Site created as a BU CS673 final project.</p>
-    {% endblock %}
+	<div class = "wrapper">
+	    <div id="logo_device">
+		<h1 id="foreclosed_heading">Foreclosed</h1>
+		<img id="top_left_logo" src="/foreclosed_logo.png">
+	     </div>
+	     <div id = "content">
+	    {% block content %}{% endblock %}
+	     </div>
+	    <hr>
+	</div>
+	<div class = "footer">
+	    {% block footer %}
+	    <p>Site created as a BU CS673 final project.</p>
+	    {% endblock %}
+	</div>
 </body>
 </html>
-
