@@ -1,5 +1,3 @@
-from decimal import *
-
 class ProbabilityAlgorithm():
 	def __init__(self):
 		pass
@@ -11,15 +9,17 @@ class ProbabilityAlgorithm():
 			return False
 	
 	def probabilityOfForeclosure (assessedValue, amountOwed):
-		if hasNegativeEquity(assessedValue, amountOwed) is False:
-			return "there is no risk of foreclosure if you just sell your house"
+		if not hasNegativeEquity(assessedValue, amountOwed): 
+			return 0, "You do not have negative equity, \
+				there is not probability of forecosure\
+				if you sell your house."
 		
-		negativeEquity = Decimal(amountOwed) - Decimal(assessedValue)
+		negativeEquity = amountOwed - assessedValue
 		percentOfNegativeEquity = negativeEquity / assessedValue
 		return	percentValueOfForeclosure(percentOfNegativeEquity)
 
 	def percentValueOfForeclosure(percentOfNegEq):
-		if percentofNegEq > 1.0:
-			return 100
+		if percentofNegEq > 1:
+			return 1
 		else:
-			return 100.0 * percentOfNegEq
+			return 1 * percentOfNegEq
