@@ -5,31 +5,31 @@ MAX_MODIFICATION_AMOUNT = 729750
 MAX_UNITS = 5
 
 
-def meetsModificationRequirements(monthlyIncome, mortage, address):
+def meetsModificationRequirements(monthlyIncome, mortgage, address):
 
-	if monthlyIncome * PAYMENT_TO_INCOME_GUIDELINE > mortage.monthlyPayment:
-		return False, "Monthly Income too high relative to mortage payment for HAMP modification."
+	if monthlyIncome * PAYMENT_TO_INCOME_GUIDELINE > mortgage.monthlyPayment:
+		return False, "Monthly Income too high relative to mortgage payment for HAMP modification."
 
-	if not mortage.ownerOccupied:
+	if not mortgage.ownerOccupied:
 		return False, "Mortgage must be on an owner-occupied house"
 
-	if mortage.units > MAX_UNITS:
-		return False, "Mortage must be on a house with less than %s units for HAMP modification." % (MAX_UNITS)
+	if mortgage.units > MAX_UNITS:
+		return False, "mortgage must be on a house with less than %s units for HAMP modification. Your mortgage has %s units" % (MAX_UNITS, mortgage.units)
 
-	if not mortage.first:
-		return False, "Only first mortages can be modified with HAMP."
+	if not mortgage.first:
+		return False, "Only first mortgages can be modified with HAMP."
 
-	return mortageMeetsHAMPRequirements(mortage, address) 
+	return mortgageMeetsHAMPRequirements(mortgage, address) 
 
 
-def mortgageMeetsHAMPRequirements(mortage, address):
-	if mortage.amountOwed > address.assessedValue():
+def mortgageMeetsHAMPRequirements(mortgage, address):
+	if mortgage.amountOwed > address.assessedValue():
 		return False, "Amount owed must be less than assessed value for HAMP modifiaction."
 
-	if mortage.amountOwed > MAX_MODIFICATION_AMOUNT:
+	if mortgage.amountOwed > MAX_MODIFICATION_AMOUNT:
 		return False, "Amount owed must be less than %s" % (MAX_MODIFICATION_AMOUNT)
 
-	if not mortage.current:
-		return False, "You must be current on your mortage to recieve HAMP modification."
+	if not mortgage.current:
+		return False, "You must be current on your mortgage to recieve HAMP modification."
 
 	return True,
