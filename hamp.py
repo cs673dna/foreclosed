@@ -25,7 +25,8 @@ class HAMPForm(forms.Form):
 		decimal_places = 2,
 		min_value = 0)
 
-	numberOfUnits = forms.CharField(label = "Number of Units")
+	numberOfUnits = forms.DecimalField(label = "Number of Units",
+		min_value = 1)
 
 	streetAddress = forms.CharField(label = "Address")
 	cityStateZip = forms.CharField(label = "City, State, Zip")
