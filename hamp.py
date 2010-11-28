@@ -39,13 +39,9 @@ def HAMP(request):
 	if request.method == 'POST':
 		form = HAMPForm(request.POST)
 		if form.is_valid():
-			#hampCheck = HampCheck()
-			#Address
+
 			mortgage_address = Address(form.cleaned_data['streetAddress'],
 				form.cleaned_data['cityStateZip'])
-			#hampCheck.address = form.cleaned_data['streetAddress']
-			#hampCheck.citystatezip = form.cleaned_data['cityStateZip']
-			#hampCheck.address = mortgage_address
 
 			#Mortgage
 			amountOwed = form.cleaned_data['amountOwed']
