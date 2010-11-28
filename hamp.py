@@ -34,19 +34,6 @@ class HAMPForm(forms.Form):
 		decimal_places = 2,
 		min_value = 0)
 
-class HampCheck_old():
-
-	def __init__(self):
-		pass
-
-	def modifiable(self):
-		mortage = Mortgage(self.monthlyPayment, 
-			self.amountOwed, 
-			self.first,
-			self.ownerOccupied,
-			self.units)
-
-		return meetsModificationRequirements(self.monthlyIncome, mortage, self.address)
 
 def HAMP(request):
 	if request.method == 'POST':
