@@ -25,15 +25,17 @@ class HAMPForm(forms.Form):
 		decimal_places = 2,
 		min_value = 0)
 
-	numberOfUnits = forms.DecimalField(label = "Number of Units",
+	numberOfUnits = forms.IntegerField(label = "Number of Units",
 		min_value = 1)
-
-	streetAddress = forms.CharField(label = "Address")
-	cityStateZip = forms.CharField(label = "City, State, Zip")
 
 	monthlyIncome = forms.DecimalField(label="Monthly Income",
 		decimal_places = 2,
 		min_value = 0)
+
+
+	streetAddress = forms.CharField(label = "Address")
+	cityStateZip = forms.CharField(label = "City, State, Zip")
+
 
 
 def HAMP(request):
