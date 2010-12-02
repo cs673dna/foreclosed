@@ -7,4 +7,4 @@ class Address():
 
 
 	def assessedValue(self):
-		return zEstimate(self)
+		return zEstimate(self.address, self.citystatezip)
