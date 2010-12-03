@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 from views import index
-from hamp import HAMP
-from foreclosure_probability import foreclosure_probability
+from hamp.hamp import HAMP
+from foreclosure_probability.foreclosure_probability import foreclosure_probability
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
