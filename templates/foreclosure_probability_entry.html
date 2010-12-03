@@ -6,7 +6,7 @@ Foreclosure Probability User Input
 Foreclosure Probability
 {% endblock %}
 {% block content %}
-<form action="foreclosure_probability" method="post">
+<form action="foreclosure" method="post">
 {% csrf_token %}
 {{form.as_p}}
 <input type="submit" value="Submit" />
