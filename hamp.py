@@ -64,7 +64,10 @@ def HAMP(request):
 			#User's Financial Situation
 			monthlyIncome = form.cleaned_data['monthlyIncome']
 			
-			hampTry = meetsModificationRequirements(monthlyIncome, mortgage, mortgage_address)
+			hampTry = meetsModificationRequirements(
+				monthlyIncome, 
+				mortgage, 
+				mortgage_address)
 
 			if hampTry[0]:
 				modificationMessage = True
