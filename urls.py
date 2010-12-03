@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 from views import index
 from hamp import HAMP
-from foreclosure_probability import foreclosureProbability
+from foreclosure_probability import foreclosure_probability
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -12,7 +12,7 @@ urlpatterns = patterns('',
 	#(r'hamp', HAMPResults),
 	#(r'administrate', administrate),
 	(r'^hamp$', HAMP),
-	(r'^foreclosure$', foreclosureProbability)
+	(r'^foreclosure$', foreclosure_probability)
     # Example:
     # (r'^foreclosed/', include('foreclosed.foo.urls')),
 
