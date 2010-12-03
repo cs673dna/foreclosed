@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block page_title %}
+Foreclosure Probability User Input
+{% endblock %}
+{% block page_heading %}
+Foreclosure Probability
+{% endblock %}
+{% block content %}
+<form action="foreclosure_probability" method="post">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="Submit" />
+</form>
+{% endblock %}
