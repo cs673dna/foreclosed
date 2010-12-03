@@ -37,7 +37,7 @@ def _process_form(form):
 		amount_owed)
 	
 	return render_to_response(
-		'foreclose_probability_result.html',
+		'foreclosure_probability_result.html',
 		{'probability': return_values[0], 
 		'algorithm_message': return_values[1]})
 	
