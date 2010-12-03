@@ -2,6 +2,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django import forms
 from address import Address
+import foreclosure_algorithm
 
 class ForeclosureProbabilityForm(forms.Form):
 
@@ -32,7 +33,7 @@ def _process_form(form):
 
 	amount_owed = form.cleaned_data['amount_owed']
 
-	return_values = calc_foreclosure_probability(
+	return_values = foreclosure_algorithm.calc_foreclosure_probability(
 		mortgageAddress.assessedValue(), 
 		amount_owed)
 	
@@ -42,26 +43,3 @@ def _process_form(form):
 		'algorithm_message': return_values[1]})
 	
 
-def calc_foreclosure_probability(assessedValue, amountOwed):
-	
-	if not hasNegativeEquity(assessedValue, amountOwed): 
-		return 0, "You do not have negative equity, \
-			there is no probability of forecosure\
-			if you sell your house."
-	
-	negativeEquity = amountOwed - assessedValue
-	percentOfNegativeEquity = negativeEquity / assessedValue
-	return	percentValueOfForeclosure(percentOfNegativeEquity)
-
-def percentValueOfForeclosure(percentOfNegEq):
-	if percentofNegEq > 1:
-		return 1
-	else:
-		return 1 * percentOfNegEq
-
-
-def hasNegativeEquity(assessedValue, amountOwed):
-	if amountOwed > assessedValue:
-		return True
-	else:	
-		return False
