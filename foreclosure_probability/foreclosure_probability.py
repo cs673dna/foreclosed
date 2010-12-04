@@ -36,6 +36,8 @@ def _process_form(form):
 	future_values = [(2010, 500), (2011, 600), (2012, 700),
 		(2013, 800)]
 
+	future_values = "[['2004', 200], ['2005', 300]]"
+
 	zestimate = mortgageAddress.assessedValue()
 
 	return_values = foreclosure_algorithm.calc_foreclosure_probability(

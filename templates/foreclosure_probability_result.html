@@ -31,13 +31,7 @@
 	var lineData = new google.visualization.DataTable();
         lineData.addColumn('string', 'Year');
         lineData.addColumn('number', 'Sales');
-        lineData.addColumn('number', 'Expenses');
-        lineData.addRows([
-          ['2004', 1000, 400],
-          ['2005', 1170, 460],
-          ['2006', 660, 1120],
-          ['2007', 1030, 540]
-        ]);
+        lineData.addRows( {% autoescape off %} {{ future_values }} {% endautoescape %});
 
         var lineChart = new google.visualization.AreaChart(document.getElementById('line_div'));
         lineChart.draw(lineData, {width: 400, height: 240, title: 'Company Performance',
