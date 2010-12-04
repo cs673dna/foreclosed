@@ -6,7 +6,7 @@ import foreclosure_algorithm
 
 class ForeclosureProbabilityForm(forms.Form):
 
-	amount_owed = forms.DecimalField(label="Amount Owed")
+	amount_owed = forms.FloatField(label="Amount Owed")
 	street_address = forms.CharField(label="Address")
 	city_state_zip = forms.CharField(label="City, State, Zip")	
 	
@@ -37,9 +37,11 @@ def _process_form(form):
 		(2013, 800)]
 
 	future_values = "[['2004', 200], ['2005', 300]]"
-
+	
 	zestimate = mortgageAddress.assessedValue()
 
+	future_values = foreclosure_algorithm.future_values(zestimate, 2010, 10)
+	
 	return_values = foreclosure_algorithm.calc_foreclosure_probability(
 		zestimate, 
 		amount_owed)
