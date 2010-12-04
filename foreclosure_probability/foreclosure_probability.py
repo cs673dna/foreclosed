@@ -33,6 +33,9 @@ def _process_form(form):
 
 	amount_owed = form.cleaned_data['amount_owed']
 
+	future_values = [(2010, 500), (2011, 600), (2012, 700),
+		(2013, 800)]
+
 	zestimate = mortgageAddress.assessedValue()
 
 	return_values = foreclosure_algorithm.calc_foreclosure_probability(
@@ -43,4 +46,5 @@ def _process_form(form):
 		'foreclosure_probability_result.html',
 		{'probability': return_values[0], 
 		'algorithm_message': return_values[1],
-		'zestimate': zestimate })
+		'zestimate': zestimate,
+		'future_values': future_values})
