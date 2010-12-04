@@ -1,10 +1,17 @@
 {% extends "base.html" %}
+
+{% block javascript_base_function %}
+
+{% endblock %}
+
 {% block page_title %}
 Foreclosure Probability Results
 {% endblock %}
+
 {% block page_heading %}
 Foreclosure Probability Results
 {% endblock %}
+
 {% block content %}
 Your probability of foreclosure is: {{ probability }}, your house is worth {{ zestimate }}
 {% endblock %}
