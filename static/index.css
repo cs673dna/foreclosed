@@ -24,6 +24,11 @@ html, body {
 	margin: 0 auto -4em;
 }
 
+.page_link {
+	clear:left;
+	float:left;
+}
+
 #content {
 	clear: both;
 }
