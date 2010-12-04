@@ -2,7 +2,24 @@
 <html lang="en">
 <link href="/index.css" rel="stylesheet" type="text/css">
 <head>
+<<<<<<< HEAD
     <title>Foreclosed {% block page_title %}{% endblock %}</title>
+=======
+    <title>foreclosed {% block page_title %}{% endblock %}</title>
+	<!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1', {'packages':['corechart']});
+      
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+	{% block javascript_base_function %}{% endblock %} 
+      </script> 
+
+>>>>>>> 5d4ef847f00b20926865ec444af7a89e9d03a137
 </head>
 <body>
 	<div class = "wrapper">
