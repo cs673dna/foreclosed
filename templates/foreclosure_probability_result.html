@@ -27,6 +27,23 @@
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, {width: 400, height: 240, is3D: true, title: 'My Daily Activities'});
+
+	var lineData = new google.visualization.DataTable();
+        lineData.addColumn('string', 'Year');
+        lineData.addColumn('number', 'Sales');
+        lineData.addColumn('number', 'Expenses');
+        lineData.addRows([
+          ['2004', 1000, 400],
+          ['2005', 1170, 460],
+          ['2006', 660, 1120],
+          ['2007', 1030, 540]
+        ]);
+
+        var lineChart = new google.visualization.AreaChart(document.getElementById('line_div'));
+        lineChart.draw(lineData, {width: 400, height: 240, title: 'Company Performance',
+                          hAxis: {title: 'Year', titleTextStyle: {color: '#FF0000'}}
+                         });
+
       }
 {% endblock %}
 
@@ -43,4 +60,6 @@ Your probability of foreclosure is: {{ probability }}, your house is worth {{ ze
 
   <!--Div that will hold the pie chart-->
     <div id="chart_div"></div>
+ <!--Div that will hold the line series chart-->
+	<div id="line_div"></div> 
 {% endblock %}
