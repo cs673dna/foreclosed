@@ -41,5 +41,3 @@ def _process_form(form):
 		'foreclosure_probability_result.html',
 		{'probability': return_values[0], 
 		'algorithm_message': return_values[1]})
-	
-
