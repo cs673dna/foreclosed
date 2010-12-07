@@ -1,7 +1,7 @@
 from zillow import zEstimate
 from django.db import models
 
-class Address(models.Model):
+class old_Address(models.Model):
 	street_address = models.CharField(max_length=100)
 	city_state_zip = models.CharField("City, State, Zip", max_length=200)
 	#def __init__(self, address, citystatezip):
