@@ -23,7 +23,7 @@ def parseSearchResults(results):
 	try:
 		responseXML = resultsXML.firstChild.getElementsByTagName('response')[0]
 	except IndexError as e:
-		raise ZillowError(
+		raise ZillowException(
 			resultsXML.getElementsByTagName("message")[0].getElementsByTagName("text")[0].firstChild.toxml())
 
 	zestimateXML = responseXML.getElementsByTagName('zestimate')[0]
@@ -31,7 +31,7 @@ def parseSearchResults(results):
 	return amountXML.firstChild.toxml()
 
 
-class ZillowError(Exception):
+class ZillowException(Exception):
 	def __init__(self, value):
 		self.value = value
 	def __str__(self):
