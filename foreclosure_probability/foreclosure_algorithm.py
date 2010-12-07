@@ -24,5 +24,5 @@ def hasNegativeEquity(assessedValue, amountOwed):
 	else:	
 		return False
 
-def future_values(present_value, years):
-	return [present_value * math.pow((1 + HOME_PRICE_INFLATION_RATE), year) for year in range(1, years)]
+def future_values(present_value, start_year, years):
+	return [[str(year), present_value * math.pow(( 1.0 + HOME_PRICE_INFLATION_RATE ), (year - start_year))] for year in range(start_year, start_year + years)]

@@ -15,7 +15,7 @@ def zEstimate(street_address, city_state_zip):
 		citystatezip=urllib.quote(city_state_zip))
 
 	f = urllib2.urlopen(uri)
-	return parseSearchResults(f)
+	return float(parseSearchResults(f))
 
 
 def parseSearchResults(results):
