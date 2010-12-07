@@ -1,10 +1,10 @@
 from django import forms
-from foreclosed.address.address import Address
+from foreclosed.models import Address, AssesmentException
 from hamp_algorithm import meetsModificationRequirements
 from foreclosed.mortgage import Mortgage
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-
+from foreclosed.address.zillow import ZillowException
 class HAMPForm(forms.Form):
 	
 	firstMortgage = forms.BooleanField(
@@ -83,8 +83,11 @@ def HAMP(request):
 
 			try:
 				assessed_message = mortgage_address.assessedValue()
-			except ZillowException as e:
-				assessed_message = e
+			except AssesmentException as e:
+				#assessed_message = e.message
+				assessed_message = ("There was an " +
+						"error getting an " +
+						"gettng your houses value")
 
 			return render_to_response(
 				'hamp_results.html', 
