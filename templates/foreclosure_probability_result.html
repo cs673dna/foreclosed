@@ -15,26 +15,23 @@
       // Create our data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Task');
-        data.addColumn('number', 'Hours per Day');
+        data.addColumn('number', 'probability');
         data.addRows([
-          ['Work', 11],
-          ['Eat', 2],
-          ['Commute', 2],
-          ['Watch TV', 2],
-          ['Sleep', 7]
+          ['Foreclosure', 67],
+          ['Safe', 33]]
         ]);
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, {width: 400, height: 240, is3D: true, title: 'My Daily Activities'});
+        chart.draw(data, {width: 400, height: 240, is3D: true, title: 'Years To Break Even'});
 
 	var lineData = new google.visualization.DataTable();
         lineData.addColumn('string', 'Year');
-        lineData.addColumn('number', 'Sales');
+        lineData.addColumn('number', 'Break Even Point');
 	lineData.addRows( {% autoescape off %} {{ future_values }} {% endautoescape %});
 
         var lineChart = new google.visualization.AreaChart(document.getElementById('line_div'));
-        lineChart.draw(lineData, {width: 400, height: 240, title: 'Company Performance',
+        lineChart.draw(lineData, {width: 400, height: 240, title: 'Equity Gain',
                           hAxis: {title: 'Year', titleTextStyle: {color: '#FF0000'}}
                          });
 
