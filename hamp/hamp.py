@@ -87,7 +87,7 @@ def HAMP(request):
 				#assessed_message = e.message
 				assessed_message = ("There was an " +
 						"error getting an " +
-						"gettng your houses value")
+						"getting your houses value")
 
 			return render_to_response(
 				'hamp_results.html', 
