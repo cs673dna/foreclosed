@@ -1,7 +1,7 @@
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django import forms
-from foreclosed.address.address import Address
+from foreclosed.models import Address
 import foreclosure_algorithm
 
 class ForeclosureProbabilityForm(forms.Form):
@@ -27,21 +27,23 @@ def foreclosure_probability(request):
 
 
 def _process_form(form):
-	mortgageAddress = Address(
+	mortgage_address = Address(
 		form.cleaned_data['street_address'],
 		form.cleaned_data['city_state_zip'])
 
 	amount_owed = form.cleaned_data['amount_owed']
 
-	future_values = foreclosure_algorithm.future_values(zestimate, 2010, 10)
+	assessed_value = mortgage_address.assessed_value()
+
+	future_values = foreclosure_algorithm.future_values(assessed_value, 2010, 10)
 	
 	return_values = foreclosure_algorithm.calc_foreclosure_probability(
-		zestimate, 
+		assessed_value, 
 		amount_owed)
 	
 	return render_to_response(
 		'foreclosure_probability_result.html',
 		{'probability': return_values[0], 
 		'algorithm_message': return_values[1],
-		'zestimate': zestimate,
+		'zestimate': assessed_value,
 		'future_values': future_values})

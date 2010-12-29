@@ -1,8 +1,8 @@
-import decimal
+from decimal import Decimal
 
 from foreclosed.models import AssesmentException
 
-PAYMENT_TO_INCOME_GUIDELINE = decimal.Decimal(.31)
+PAYMENT_TO_INCOME_GUIDELINE = Decimal(".31")
 MAX_MODIFICATION_AMOUNT = 729750
 MAX_UNITS = 5
 
