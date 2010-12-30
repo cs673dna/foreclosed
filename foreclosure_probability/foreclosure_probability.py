@@ -1,8 +1,9 @@
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django import forms
-from foreclosed.models import Address
+from foreclosed.models import Address, AssesmentError
 import foreclosure_algorithm
+
 
 class ForeclosureProbabilityForm(forms.Form):
 
@@ -27,13 +28,27 @@ def foreclosure_probability(request):
 
 
 def _process_form(form):
+
+	street_address = form.cleaned_data['street_address']
+	city_state_zip = form.cleaned_data['city_state_zip']
 	mortgage_address = Address(
-		form.cleaned_data['street_address'],
-		form.cleaned_data['city_state_zip'])
+		street_address,
+		city_state_zip)
 
 	amount_owed = form.cleaned_data['amount_owed']
 
-	assessed_value = mortgage_address.assessed_value()
+	try:
+		assessed_value = mortgage_address.assessed_value()
+	except AssesmentError as e:
+		return render_to_response(
+			'failed_assesment_lookup.html',
+			{'street_address': street_address,
+			 'city_state_zip': city_state_zip,
+			 'assesment_error': e.value}
+		)
+			
+		
+		
 
 	future_values = foreclosure_algorithm.future_values(assessed_value, 2010, 10)
 	

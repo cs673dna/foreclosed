@@ -1,10 +1,10 @@
 from django import forms
-from foreclosed.models import Address, AssesmentException
+from foreclosed.models import Address, AssesmentError
 from hamp_algorithm import meetsModificationRequirements
 from foreclosed.mortgage import Mortgage
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from foreclosed.address.zillow import ZillowException
+from foreclosed.address.zillow import ZillowError
 class HAMPForm(forms.Form):
 	
 	firstMortgage = forms.BooleanField(

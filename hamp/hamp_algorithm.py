@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from foreclosed.models import AssesmentException
+from foreclosed.models import AssesmentError
 
 PAYMENT_TO_INCOME_GUIDELINE = Decimal(".31")
 MAX_MODIFICATION_AMOUNT = 729750

@@ -1,6 +1,6 @@
 from django.template import RequestContext
 from django.db import models
-from address.zillow import zEstimate, ZillowException
+from address.zillow import zEstimate, ZillowError
 from django.forms import ModelForm
 from django.shortcuts import render_to_response
 
@@ -14,8 +14,8 @@ class Address(models.Model):
 	def assessed_value(self):
 		try:
 			return zEstimate(self.street_address, self.city_state_zip)
-		except ZillowException as e:
-			raise AssesmentException(e.message)
+		except ZillowError as e:
+			raise AssesmentError(e.value)
 
 class AmountOwedFromUser(models.Model):
 	amount_owed = models.FloatField()
@@ -42,7 +42,7 @@ def HAMP_new(request):
 		{'form': form},
 		context_instance=RequestContext(request))
 
-class AssesmentException(Exception):
+class AssesmentError(Exception):
 	def __init__(self, value):
 		self.value = value
 
