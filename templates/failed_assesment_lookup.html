@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+Assesment Lookup Failed
+{% endblock %}
+
+{% block page_heading %}
+Assesment Lookup Failed
+{% endblock %}
+
+{% block content %}
+We were unable to find an assessed value for the address entered,
+</br>
+Address: {{ street_address  }}
+City, State, Zip {{ city_state_zip }}
+</br>
+Because,
+</br>
+{{ assesment_error }}
+{% endblock %}
