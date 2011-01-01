@@ -5,15 +5,14 @@ from django.forms import ModelForm
 from django.shortcuts import render_to_response
 
 class Address(models.Model):
-	street_address = models.CharField(max_length=100)
-	city_state_zip = models.CharField("City, State, Zip", max_length=200)
-	#def __init__(self, address, citystatezip):
-		#self.street_adress = address
-		#self.cits_state_zip = citystatezip
+	street_address = models.CharField("Address", max_length=100)
+	city_state_zip = models.CharField("City, State, Zip", 
+						max_length=200)
 
 	def assessed_value(self):
 		try:
-			return zEstimate(self.street_address, self.city_state_zip)
+			return zEstimate(self.street_address, 
+					self.city_state_zip)
 		except ZillowError as e:
 			raise AssesmentError(e.value)
 

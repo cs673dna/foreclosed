@@ -15,7 +15,15 @@ def zEstimate(street_address, city_state_zip):
 		citystatezip=urllib.quote(city_state_zip))
 
 	f = urllib2.urlopen(uri)
-	return float(parseSearchResults(f))
+	try:
+		zestimate_str = parseSearchResults(f)
+	except ZillowError as e:
+		raise ZillowError(
+			"#".join((e.value, 
+			street_address,
+			city_state_zip)))
+
+	return float(zestimate_str)
 
 
 def parseSearchResults(results):

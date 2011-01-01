@@ -29,32 +29,34 @@ def foreclosure_probability(request):
 
 def _process_form(form):
 
-	street_address = form.cleaned_data['street_address']
-	city_state_zip = form.cleaned_data['city_state_zip']
-	mortgage_address = Address(
-		street_address,
-		city_state_zip)
+	form_street_address = form.cleaned_data['street_address']
+	form_city_state_zip = form.cleaned_data['city_state_zip']
+	form_amount_owed = form.cleaned_data['amount_owed']
 
-	amount_owed = form.cleaned_data['amount_owed']
+	mortgage_address = Address(
+		street_address = form_street_address,
+		city_state_zip = form_city_state_zip
+		)
+
 
 	try:
 		assessed_value = mortgage_address.assessed_value()
 	except AssesmentError as e:
 		return render_to_response(
 			'failed_assesment_lookup.html',
-			{'street_address': street_address,
-			 'city_state_zip': city_state_zip,
+			{'street_address': form_street_address,
+			 'city_state_zip': form_city_state_zip,
 			 'assesment_error': e.value}
 		)
 			
-		
-		
-
-	future_values = foreclosure_algorithm.future_values(assessed_value, 2010, 10)
+	future_values = foreclosure_algorithm.future_values(
+						assessed_value, 
+						2010, 
+						10)
 	
-	return_values = foreclosure_algorithm.calc_foreclosure_probability(
+	return_values = foreclosure_algorithm.foreclosure_probability(
 		assessed_value, 
-		amount_owed)
+		form_amount_owed)
 	
 	return render_to_response(
 		'foreclosure_probability_result.html',
