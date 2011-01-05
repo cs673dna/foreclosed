@@ -38,6 +38,7 @@ def _process_form(form):
 		city_state_zip = form_city_state_zip
 		)
 
+	mortgage_address.save()
 
 	try:
 		assessed_value = mortgage_address.assessed_value()
