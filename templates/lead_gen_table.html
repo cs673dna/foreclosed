@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+Lead Generation Leads
+{% endblock %}
+{% block page_heading %}
+Lead Generation Leads
+{% endblock %}
+{% block content %}
+{% if addresses %}
+	<ul>
+		{% for address in addresses %}
+			<li>{{ address.street_address }} {{ address.city_state_zip }}</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No Addresses Available.</p>
+{% endif %}
+{% endblock %}
