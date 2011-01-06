@@ -5,7 +5,7 @@
 #Restarts apache
 #should be run as root
 #by akittredge October 2010
-rm *.pyc
+rm -f *.pyc
 git pull
 mysql -u root -pand376sc foreclosed < foreclosed.sql
 cp static/* /var/www/
