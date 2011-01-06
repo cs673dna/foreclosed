@@ -3,12 +3,7 @@
 <link href="/index.css" rel="stylesheet" type="text/css">
 <head>
     <title>Foreclosed {% block page_title %}{% endblock %}</title>
-	<!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-    
-	{% block javascript_base_function %}{% endblock %} 
-      </script> 
+{% block script_setup %}{% endblock %}
 
 </head>
 <body>
