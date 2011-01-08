@@ -17,7 +17,7 @@ urlpatterns = patterns('',
 	(r'hamp$', HAMP),
 	(r'^hamp_new', HAMP_new),
 	(r'foreclosure$', foreclosure_probability),
-	(r'lead_gen$', lead_gen_display)
+	(r'lead_gen_leads$', lead_gen_display)
     # Example:
     # (r'^foreclosed/', include('foreclosed.foo.urls')),
 
