@@ -6,13 +6,13 @@ Lead Generation Leads
 Lead Generation Leads
 {% endblock %}
 {% block content %}
-{% if addresses %}
+{% if leads %}
 	<ul>
-		{% for address in addresses %}
-			<li>{{ address.street_address }} {{ address.city_state_zip }}</li>
+		{% for lead in leads %}
+			<li>{{ lead.address }} {{ lead.amount_owed }} {{ lead.date_collected }} </li>
 		{% endfor %}
 	</ul>
 {% else %}
-	<p>No Addresses Available.</p>
+	<p>No Leads Available.</p>
 {% endif %}
 {% endblock %}

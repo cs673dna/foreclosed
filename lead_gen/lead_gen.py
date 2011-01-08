@@ -1,11 +1,11 @@
 from django.shortcuts import render_to_response, get_list_or_404
 from django.template import RequestContext
-from foreclosed.models import Address
+from foreclosed.models import AmountOwedFromUser
 
 
 def lead_gen_display(request):
-	addresses = get_list_or_404(Address)
+	leads = get_list_or_404(AmountOwedFromUser)
 	return render_to_response(
 	'lead_gen_table.html',
-	{'addresses': addresses},
+	{'leads': leads},
 	context_instance = RequestContext(request))

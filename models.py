@@ -19,7 +19,7 @@ class Address(models.Model):
 class AmountOwedFromUser(models.Model):
 	amount_owed = models.FloatField()
 	address = models.ForeignKey(Address)
-	date_time_collected = models.DateTimeField()
+	date_collected = models.DateTimeField()
 
 class HAMPModification(models.Model):
 	amount_owed = models.FloatField()

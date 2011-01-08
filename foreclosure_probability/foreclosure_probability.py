@@ -1,8 +1,9 @@
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django import forms
-from foreclosed.models import Address, AssesmentError
+from foreclosed.models import Address, AssesmentError, AmountOwedFromUser
 import foreclosure_algorithm
+from datetime import date
 
 
 class ForeclosureProbabilityForm(forms.Form):
@@ -39,6 +40,15 @@ def _process_form(form):
 		)
 
 	mortgage_address.save()
+
+	persistent_record = AmountOwedFromUser(
+				amount_owed = form_amount_owed,
+				address = mortgage_address,
+				date_collected = date.today()
+				)
+
+	persistent_record.save()
+				
 
 	try:
 		assessed_value = mortgage_address.assessed_value()
