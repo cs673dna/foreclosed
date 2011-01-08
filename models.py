@@ -9,6 +9,9 @@ class Address(models.Model):
 	city_state_zip = models.CharField("City, State, Zip", 
 						max_length=200)
 
+	class Meta:
+		unique_together = ("street_address", "city_state_zip")
+
 	def assessed_value(self):
 		try:
 			return zEstimate(self.street_address, 

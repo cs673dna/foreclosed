@@ -294,8 +294,9 @@ CREATE TABLE `foreclosed_address` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `street_address` varchar(100) NOT NULL,
   `city_state_zip` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `street_address` (`street_address`,`city_state_zip`)
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -304,7 +305,6 @@ CREATE TABLE `foreclosed_address` (
 
 LOCK TABLES `foreclosed_address` WRITE;
 /*!40000 ALTER TABLE `foreclosed_address` DISABLE KEYS */;
-INSERT INTO `foreclosed_address` VALUES (1,'16 Adelaide St.','Boston MA 02130'),(2,'36 Forbes Street','Boston MA 02130'),(3,'16 Adelaide St.','Boston MA 02130'),(4,'16 Adelaide St.','Boston MA 02130'),(5,'16 Adelaide St.','Boston MA 02130'),(6,'16 Adelaide St.','Boston MA 02130'),(7,'16 Adelaide St.','Boston MA 02130'),(8,'20 Adelaide Street','boston ma 02130'),(9,'20 Adelaide Street','boston ma 02130'),(10,'20 Adelaide Street','boston ma 02130'),(11,'20 Adelaide Street','boston ma 02130'),(12,'1600 Pennsylvania Ave NW','Washington DC 20500'),(13,'9 sheridan street','boston ma 02130'),(14,'9 sheridan street','Boston MA 02130'),(15,'9 Sheridan street','Boston MA 02130'),(16,'9 Sheridan Street','Boston MA 02130'),(17,'9 Sheridan Street','Boston MA 02130'),(18,'16 Adelaide St.','Boston MA 02130'),(19,'16 Adelaide St.','Boston MA 02130'),(20,'16 Adelaide St.','Boston MA 02130'),(21,'16 Adelaide St.','Boston MA 02130'),(22,'16 Adelaide St.','Boston MA 02130'),(23,'16 Adelaide St.','Boston MA 02130'),(24,'16 Adelaide St.','Boston MA 02130'),(25,'16 Adelaide St.','Boston MA 02130'),(26,'16 Adelaide St.','Boston MA 02130'),(27,'16 Adelaide St.','Boston MA 02130'),(28,'16 Adelaide St.','Boston MA 02130'),(29,'16 Adelaide St.','Boston MA 02130'),(30,'16 Adelaide St.','Boston MA 02130'),(31,'16 Adelaide St.','Boston MA 02130');
 /*!40000 ALTER TABLE `foreclosed_address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -322,7 +322,7 @@ CREATE TABLE `foreclosed_amountowedfromuser` (
   `date_collected` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `foreclosed_amountowedfromuser_4dec3e17` (`address_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -331,7 +331,6 @@ CREATE TABLE `foreclosed_amountowedfromuser` (
 
 LOCK TABLES `foreclosed_amountowedfromuser` WRITE;
 /*!40000 ALTER TABLE `foreclosed_amountowedfromuser` DISABLE KEYS */;
-INSERT INTO `foreclosed_amountowedfromuser` VALUES (1,600000,31,'2011-01-08 00:00:00');
 /*!40000 ALTER TABLE `foreclosed_amountowedfromuser` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -369,4 +368,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-01-08 11:35:58
+-- Dump completed on 2011-01-08 12:36:05
