@@ -24,25 +24,6 @@ class AmountOwedFromUser(models.Model):
 	address = models.ForeignKey(Address)
 	date_collected = models.DateTimeField()
 
-class HAMPModification(models.Model):
-	amount_owed = models.FloatField()
-	address = models.OneToOneField(Address)
-
-class HAMPModificationForm(ModelForm):
-	class Meta:
-		model = HAMPModification
-
-
-def HAMP_new(request):
-	if request.method == 'POST':
-		form = HAMPModificationForm(request.POST)
-		h = form.save()
-
-	form = HAMPModificationForm()
-
-	return render_to_response('HAMP_new.html',
-		{'form': form},
-		context_instance=RequestContext(request))
 
 class AssesmentError(Exception):
 	def __init__(self, value):
