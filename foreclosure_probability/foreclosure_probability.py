@@ -46,13 +46,13 @@ def _process_form(form):
 				)
 		mortgage_address.save()
 
-	persistent_record = AmountOwedFromUser(
+	record_for_lead_gen = AmountOwedFromUser(
 				amount_owed = form_amount_owed,
 				address = mortgage_address,
 				date_collected = date.today()
 				)
 
-	persistent_record.save()
+	record_for_lead_gen.save()
 				
 
 	try:
