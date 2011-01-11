@@ -34,12 +34,17 @@ def _process_form(form):
 	form_city_state_zip = form.cleaned_data['city_state_zip']
 	form_amount_owed = form.cleaned_data['amount_owed']
 
-	mortgage_address = Address(
-		street_address = form_street_address,
-		city_state_zip = form_city_state_zip
-		)
-
-	mortgage_address.save()
+	try:
+		mortgage_address = Address.objects.get(
+					street_address=form_street_address,
+					city_state_zip=form_city_state_zip
+					)
+	except Address.DoesNotExist as e:
+		mortgage_address = Address(
+				street_address=form_street_address,
+				city_state_zip=form_city_state_zip
+				)
+		mortgage_address.save()
 
 	persistent_record = AmountOwedFromUser(
 				amount_owed = form_amount_owed,
