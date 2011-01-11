@@ -1,1 +1,1 @@
-mysqldump -u root -p foreclosed > backupdbfile.sql
+mysqldump -u root -p foreclosed > foreclosed.sql
