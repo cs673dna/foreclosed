@@ -7,11 +7,21 @@ Lead Generation Leads
 {% endblock %}
 {% block content %}
 {% if leads %}
-	<ul>
+	<TABLE>
+	<TR>
+	<TH>Address</TH>
+	<TH>City, State, ZIP</TH>
+	<TH>Amount Owed</TH>
+	<TH>Date Added</TH>
 		{% for lead in leads %}
-			<li>{{ lead.address }} {{ lead.amount_owed }} {{ lead.date_collected }} </li>
+			<tr> 
+			<td>{{ lead.address.street_address }}</td>
+			<td>{{ lead.address.city_state_zip }}</td>
+			<td> {{ lead.amount_owed }}</td>
+			<td>{{ lead.date_collected|date:"j N Y" }}</td>
+			</tr>
 		{% endfor %}
-	</ul>
+	</TABLE>
 {% else %}
 	<p>No Leads Available.</p>
 {% endif %}
