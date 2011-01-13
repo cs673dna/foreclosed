@@ -36,6 +36,8 @@ def parseSearchResults(results):
 
 	zestimateXML = responseXML.getElementsByTagName('zestimate')[0]
 	amountXML = zestimateXML.getElementsByTagName('amount')[0]
+	if not amountXML.firstChild:
+		raise ZillowError('zEstimate not available')
 	return amountXML.firstChild.toxml()
 
 
