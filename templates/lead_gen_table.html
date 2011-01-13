@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load foreclosed_extras %}
 {% block title %}
 Lead Generation Leads
 {% endblock %}
@@ -17,7 +18,7 @@ Lead Generation Leads
 			<tr> 
 			<td>{{ lead.address.street_address }}</td>
 			<td>{{ lead.address.city_state_zip }}</td>
-			<td> {{ lead.amount_owed }}</td>
+			<td> {{ lead.amount_owed|currency }}</td>
 			<td>{{ lead.date_collected|date:"j N Y" }}</td>
 			</tr>
 		{% endfor %}
