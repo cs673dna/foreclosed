@@ -86,7 +86,7 @@ TEMPLATE_DIRS = (
     # Should be an env variable, every developer currently adds work dir
 	'/Users/andrewkittredge/Source/foreclosed/templates',
 	'/usr/src/foreclosed/templates',
-	'/home/neil/Hack/csSoftEng/foreclosed/foreclosed/templates',
+	'/home/neil/foreclosed/templates',
 )
 
 INSTALLED_APPS = (
