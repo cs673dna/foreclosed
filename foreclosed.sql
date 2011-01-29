@@ -296,7 +296,7 @@ CREATE TABLE `foreclosed_address` (
   `city_state_zip` varchar(200) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `street_address` (`street_address`,`city_state_zip`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -305,7 +305,7 @@ CREATE TABLE `foreclosed_address` (
 
 LOCK TABLES `foreclosed_address` WRITE;
 /*!40000 ALTER TABLE `foreclosed_address` DISABLE KEYS */;
-INSERT INTO `foreclosed_address` VALUES (35,'16 Adelaide St.','Boston ma 02130'),(36,'17 Adelaide St.','Boston MA 02130'),(37,'18 Adelaide St.','Boston MA 02130');
+INSERT INTO `foreclosed_address` VALUES (35,'16 Adelaide St.','Boston ma 02130'),(36,'17 Adelaide St.','Boston MA 02130'),(37,'18 Adelaide St.','Boston MA 02130'),(38,'9 sheridan street','Boston MA 02130'),(39,'9 sheridan street #3','Boston MA 02130'),(40,'20 Adelaide St.','Boston MA 02130');
 /*!40000 ALTER TABLE `foreclosed_address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -323,7 +323,7 @@ CREATE TABLE `foreclosed_amountowedfromuser` (
   `date_collected` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `foreclosed_amountowedfromuser_4dec3e17` (`address_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -332,7 +332,7 @@ CREATE TABLE `foreclosed_amountowedfromuser` (
 
 LOCK TABLES `foreclosed_amountowedfromuser` WRITE;
 /*!40000 ALTER TABLE `foreclosed_amountowedfromuser` DISABLE KEYS */;
-INSERT INTO `foreclosed_amountowedfromuser` VALUES (5,6000000,35,'2011-01-09 00:00:00'),(6,600000,36,'2011-01-09 00:00:00'),(7,600000,37,'2011-01-09 00:00:00'),(8,600000,37,'2011-01-10 00:00:00'),(9,600000,37,'2011-01-10 00:00:00'),(10,600000,37,'2011-01-10 00:00:00');
+INSERT INTO `foreclosed_amountowedfromuser` VALUES (5,6000000,35,'2011-01-09 00:00:00'),(6,600000,36,'2011-01-09 00:00:00'),(7,600000,37,'2011-01-09 00:00:00'),(8,600000,37,'2011-01-10 00:00:00'),(9,600000,37,'2011-01-10 00:00:00'),(10,600000,37,'2011-01-10 00:00:00'),(11,700000,36,'2011-01-12 00:00:00'),(12,700000,37,'2011-01-12 00:00:00'),(13,700000,38,'2011-01-12 00:00:00'),(14,700000,39,'2011-01-12 00:00:00'),(15,700000,35,'2011-01-12 00:00:00'),(16,700000,38,'2011-01-12 00:00:00'),(17,700000,38,'2011-01-12 00:00:00'),(18,700000,38,'2011-01-12 00:00:00'),(19,700000,38,'2011-01-12 00:00:00'),(20,700000,35,'2011-01-12 00:00:00'),(21,700000,37,'2011-01-12 00:00:00'),(22,700000,40,'2011-01-12 00:00:00');
 /*!40000 ALTER TABLE `foreclosed_amountowedfromuser` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -370,4 +370,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-01-10 20:49:02
+-- Dump completed on 2011-01-12 22:43:35
